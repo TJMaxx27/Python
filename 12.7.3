@@ -2,7 +2,7 @@ money = int(input("Введите сумму: "))
 deposit = []
 per_cent = {'ТКБ': 5.6, 'СКБ': 5.9, 'ВТБ': 4.28, 'СБЕР': 4.0}
 for k in per_cent:
-    value = money//100 * per_cent[k]
+    value = money/100 * per_cent[k]
     deposit.append(value)
 print(deposit)
 print("Максимальная сумма, которую вы можете заработать", max(deposit))
