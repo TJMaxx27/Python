@@ -11,7 +11,7 @@ for i in range(ticket):
     if age > 25:
         count = count + price_out
 if ticket > 3:
-    count = count/1.10
+    count = count*0.9
     print (f"Сумма к оплате с учетом 10% скидки при покупке более 3-х билетов: {round(count)}")
 else:
     print(f"Сумма к оплате: {count}")
