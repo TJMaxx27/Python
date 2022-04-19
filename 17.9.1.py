@@ -1,4 +1,4 @@
-array = [int(x) for x in input("Введите числа от 1 до 999 в любом порядке, через пробел: ").split()]
+array = [int(x) for x in input("Введите любое число в любом порядке, через пробел: ").split()]
 
 def merge_sort(array):
     if len(array) < 2:
@@ -33,27 +33,24 @@ def merge(left, right):
 print(merge_sort(array))
 
 
-def binary_search(array, element, left, right):
-    if left > right:
-        return False
-    middle = (right + left) // 2
-    if array[middle] == element:
-        return middle
-    elif element < array[middle]:
-        return binary_search(array, element, left, middle - 1)
-    else:
-        return binary_search(array, element, middle + 1, right)
-
-
-while True:
+def binary_search(array, element):
     try:
-        element = int(input("Введите число от 1 до 999: "))
-        if 0 < element > 999:
-            raise Exception
-        break
+        element = int(element)
     except ValueError:
-        print("Ошибка ввода! Введены не только числа")
-    except Exception:
-        print("Ошибка ввода! Введен неверный диапазон!")
+        return
+    if element not in array:
+        return "Число выходит за пределы заданного списка"
+    middle = len(array) // 2
+    if array[middle] == element:
+        try:
+            return array[middle - 1], array[middle + 1]
+        except IndexError:
+            return array[middle - 1], array[middle]
+    elif element > array[middle]:
+        return binary_search(array[middle:], element)
+    else:
+        return binary_search(array[:middle + 1], element)
 
-print(binary_search(array, element, 0,  len(array)))
+numbers = [i for i in range(1, 1001)]
+user_numbers = int(input("Введите число от 0 до 999: "))
+print(binary_search(numbers, user_numbers))
