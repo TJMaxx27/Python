@@ -1,4 +1,4 @@
-array = [int(x) for x in input("Введите любое число в любом порядке, через пробел: ").split()]
+array = [int(x) for x in input("Введите любую последовательность числе в любом порядке через пробел: ").split()]
 
 def merge_sort(array):
     if len(array) < 2:
